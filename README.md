@@ -1,2 +1,3 @@
-# Gun-customizer
-This is my attempt to recreate a small program I made with Javascript. It will be done with Electron
+# Gun customizer
+I used to create this tool with Javascript, but I decided to re-do it with
+Electron for various reasons.

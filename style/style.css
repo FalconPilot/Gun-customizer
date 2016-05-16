@@ -1,0 +1,66 @@
+@font-face {
+  font-family: 'Dosis';
+  src: url('resources/fonts/Dosis-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --red:     rgb(250, 150, 150);
+  --yellow:  rgb(250, 220, 150);
+  --green:   rgb(150, 250, 150);
+  --blue:    rgb(100, 200, 250);
+  --circle-radius: 5.5em;
+}
+
+body {
+  font-family: 'Dosis';
+}
+
+/*
+**  Loading screen
+*/
+
+#loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 2.8em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  z-index: 1000;
+}
+
+#loading p {
+  color: #FFF;
+  text-shadow: 0px 0px 2px #FFF;
+}
+
+.circle {
+  position: absolute;
+  width: var(--circle-radius);
+  height: var(--circle-radius);
+  left: calc(50% - var(--circle-radius) / 2);
+  top: calc(50% - var(--circle-radius) / 2);
+  border: 2px solid;
+  border-top-color:     var(--red);
+  border-right-color:   var(--yellow);
+  border-bottom-color:  var(--green);
+  border-left-color:    var(--blue);
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px rgba(150, 150, 150, 0.3);
+  animation: loading 8000ms ease-in-out infinite;
+}
+
+/*
+**  Main header
+*/
+
+#header h1 {
+  display: flex;
+  align-items: center;
+}

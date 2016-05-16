@@ -1,0 +1,90 @@
+:root {
+  --square: 25%;
+}
+
+/*
+**  Spinning animation
+*/
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+**  Loading circle animation
+*/
+
+@keyframes loading {
+  0% {
+    border-radius: 50%;
+    transform: rotate(0deg);
+  }
+  6% {
+    border-radius: var(--square);
+    transform: rotate(0deg);
+  }
+  12% {
+    border-radius: var(--square);
+    transform: rotate(90deg);
+  }
+  18% {
+    border-radius: 50%;
+    transform: rotate(90deg);
+  }
+  24% {
+    border-radius: 50%;
+    transform: rotate(90deg);
+  }
+  30% {
+    border-radius: var(--square);
+    transform: rotate(90deg);
+  }
+  36% {
+    border-radius: var(--square);
+    transform: rotate(180deg);
+  }
+  42% {
+    border-radius: 50%;
+    transform: rotate(180deg);
+  }
+  48% {
+    border-radius: 50%;
+    transform: rotate(180deg);
+  }
+  54% {
+    border-radius: var(--square);
+    transform: rotate(180deg);
+  }
+  60% {
+    border-radius: var(--square);
+    transform: rotate(270deg);
+  }
+  66% {
+    border-radius: 50%;
+    transform: rotate(270deg);
+  }
+  72% {
+    border-radius: 50%;
+    transform: rotate(270deg);
+  }
+  78% {
+    border-radius: var(--square);
+    transform: rotate(270deg);
+  }
+  84% {
+    border-radius: var(--square);
+    transform: rotate(360deg);
+  }
+  92% {
+    border-radius: 50%;
+    transform: rotate(360deg);
+  }
+  100% {
+    border-radius: 50%;
+    transform: rotate(360deg);
+  }
+}
