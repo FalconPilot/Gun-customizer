@@ -19,7 +19,7 @@
 }
 
 /*
-**  Loading animation
+**  Loading circle animation
 */
 
 @keyframes loading_circle {
@@ -43,62 +43,62 @@
     transform: rotate(90deg);
     background-color: rgba(var(--blue), var(--circle-bg-opa));
   }
-  24% {
+  25% {
     border-radius: 50%;
     transform: rotate(90deg);
     background-color: rgba(var(--blue), var(--circle-bg-opa));
   }
-  30% {
+  31% {
     border-radius: var(--square);
     transform: rotate(90deg);
     background-color: rgba(var(--blue), var(--circle-bg-opa));
   }
-  36% {
+  37% {
     border-radius: var(--square);
     transform: rotate(180deg);
     background-color: rgba(var(--green), var(--circle-bg-opa));
   }
-  42% {
+  43% {
     border-radius: 50%;
     transform: rotate(180deg);
     background-color: rgba(var(--green), var(--circle-bg-opa));
   }
-  48% {
+  50% {
     border-radius: 50%;
     transform: rotate(180deg);
     background-color: rgba(var(--green), var(--circle-bg-opa));
   }
-  54% {
+  56% {
     border-radius: var(--square);
     transform: rotate(180deg);
     background-color: rgba(var(--green), var(--circle-bg-opa));
   }
-  60% {
+  62% {
     border-radius: var(--square);
     transform: rotate(270deg);
     background-color: rgba(var(--yellow), var(--circle-bg-opa));
   }
-  66% {
+  68% {
     border-radius: 50%;
     transform: rotate(270deg);
     background-color: rgba(var(--yellow), var(--circle-bg-opa));
   }
-  72% {
+  75% {
     border-radius: 50%;
     transform: rotate(270deg);
     background-color: rgba(var(--yellow), var(--circle-bg-opa));
   }
-  78% {
+  81% {
     border-radius: var(--square);
     transform: rotate(270deg);
     background-color: rgba(var(--yellow), var(--circle-bg-opa));
   }
-  84% {
+  87% {
     border-radius: var(--square);
     transform: rotate(360deg);
     background-color: rgba(var(--red), var(--circle-bg-opa));
   }
-  92% {
+  93% {
     border-radius: 50%;
     transform: rotate(360deg);
     background-color: rgba(var(--red), var(--circle-bg-opa));
@@ -107,5 +107,63 @@
     border-radius: 50%;
     transform: rotate(360deg);
     background-color: rgba(var(--red), var(--circle-bg-opa));
+  }
+}
+
+/*
+**  Loading text animation
+*/
+
+@keyframes loading_text {
+  0% {
+    color: rgb(var(--red));
+  }
+  6% {
+    color: rgb(var(--red));
+  }
+  12% {
+    color: rgb(var(--blue));
+  }
+  18% {
+    color: rgb(var(--blue));
+  }
+  25% {
+    color: rgb(var(--blue));
+  }
+  31% {
+    color: rgb(var(--blue));
+  }
+  37% {
+    color: rgb(var(--green));
+  }
+  43% {
+    color: rgb(var(--green));
+  }
+  50% {
+    color: rgb(var(--green));
+  }
+  56% {
+    color: rgb(var(--green));
+  }
+  62% {
+    color: rgb(var(--yellow));
+  }
+  68% {
+    color: rgb(var(--yellow));
+  }
+  75% {
+    color: rgb(var(--yellow));
+  }
+  81% {
+    color: rgb(var(--yellow));
+  }
+  87% {
+    color: rgb(var(--red));
+  }
+  93% {
+    color: rgb(var(--red));
+  }
+  100% {
+    color: rgb(var(--red));
   }
 }
