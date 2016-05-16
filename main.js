@@ -7,8 +7,7 @@ let mainWindow
 function createWindow() {
   mainWindow = new BrowserWindow({
     fullscreen: true,
-    title: 'Gun customizer',
-    icon: 'file://' + __dirname + '/resources/misc/icon.icns'
+    title: 'Gun customizer'
   })
   mainWindow.loadURL('file://' + __dirname + '/index.html')
   mainWindow.webContents.openDevTools()
