@@ -1,3 +1,7 @@
+/*
+**  Document variables
+*/
+
 :root {
   --square: 25%;
 }
@@ -15,7 +19,7 @@
 }
 
 /*
-**  Loading circle animation
+**  Loading animation
 */
 
 @keyframes loading {

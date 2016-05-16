@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+/*
+**  Document variables
+*/
+
 :root {
   --red:     rgb(250, 150, 150);
   --yellow:  rgb(250, 220, 150);
@@ -12,6 +16,10 @@
   --blue:    rgb(100, 200, 250);
   --circle-radius: 5.5em;
 }
+
+/*
+**  Standard classes
+*/
 
 body {
   font-family: 'Dosis';
