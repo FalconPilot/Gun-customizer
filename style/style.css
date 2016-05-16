@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Dosis';
-  src: url('resources/fonts/Dosis-Regular.ttf') format('ttf');
+  src: url('resources/fonts/Dosis.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
   --yellow:  250, 220, 150;
   --green:   150, 250, 150;
   --blue:    100, 200, 250;
-  --circle-radius: 5.5em;
+  --circle-radius: 4.5em;
   --circle-bg-opa: 0.2;
   --loading-rate: 8000ms;
 }
