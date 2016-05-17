@@ -173,6 +173,7 @@ body {
 
 #preview {
   position: relative;
+  width: 100%;
 }
 
 #preview img {

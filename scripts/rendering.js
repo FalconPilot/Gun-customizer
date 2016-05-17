@@ -136,10 +136,6 @@ function switchWeapon(index) {
     img.onload = function() {
       width = this.width
       height = this.height
-      if (frame.style.width === '') {
-        frame.style.width = width + "px"
-        frame.style.height = height + "px"
-      }
       preview_img = this.cloneNode(false)
       frame.appendChild(this)
     }
