@@ -21,7 +21,32 @@ function createWindow() {
   win.on('closed', function() {
     app.quit()
   })
-  loadParts()
+  loadContent()
+}
+
+function loadContent() {
+  weapons = loadParts()
+}
+
+// Weapon object
+
+function Weapon(name) {
+  this.name = name
+  this.nodelist = []
+}
+
+// Node object
+
+function GunNode(name) {
+  this.name = name
+  this.partslist = []
+}
+
+// Part object
+
+function GunPart(src) {
+  this.name = src.split('/').reverse()[0].split('.')[0]
+  this.src = src
 }
 
 // Parts loading
@@ -29,9 +54,23 @@ function createWindow() {
 function loadParts() {
   gunsdir = __dirname + '/resources/guns'
   guns = getDirectories(gunsdir)
+  weapons = []
   for (i = 0; i < guns.length; i++) {
-    console.log(guns[i])
+    weapons.push(new Weapon(guns[i]))
+    gunbuffer = weapons[i]
+    subdir = gunsdir + '/' + guns[i]
+    nodes = getDirectories(subdir)
+    for (a = 0; a < nodes.length; a++) {
+      gunbuffer.nodelist.push(new GunNode(nodes[a]))
+      nodebuffer = gunbuffer.nodelist[a]
+      partsdir = subdir + '/' + nodes[a]
+      parts = getImages(partsdir)
+      for (b = 0; b < parts.length; b++) {
+        nodebuffer.partslist.push(new GunPart(partsdir + '/' + parts[b]))
+      }
+    }
   }
+  return weapons
 }
 
 // Get directories
@@ -39,6 +78,14 @@ function loadParts() {
 function getDirectories(src) {
   return fs.readdirSync(src).filter(function(file) {
     return fs.statSync(path.join(src, file)).isDirectory()
+  })
+}
+
+// Get images
+
+function getImages(src) {
+  return fs.readdirSync(src).filter(function(file) {
+    return file.slice(-4) === '.png'
   })
 }
 
