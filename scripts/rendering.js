@@ -1,17 +1,27 @@
 const remote = require('electron').remote
 const data = remote.getCurrentWindow().rendererSideName
-const frame = document.getElementById('frame')
-const menu = document.getElementById('menu')
+const frame =   document.getElementById('frame')
+const hub =     document.getElementById('hub')
+const menu =    document.getElementById('menu')
 const preview = document.getElementById('preview')
 const loading = document.getElementById('loading')
 const gunlist = document.getElementById('gunlist')
-const button = document.getElementById('change_gun')
+const button =  document.getElementById('change_gun')
 const delay = getDelay()
+
+// Get loading transition value
+
+function getDelay() {
+  style = window.getComputedStyle(loading).getPropertyValue('transition')
+  str = style.split(' ')[1]
+  value = parseInt(str.substring(0, str.length - 1).replace(/0./g, ''))
+  return value *= 100
+}
 
 // Handle content loading
 
 function loadContent() {
-  weapons = data['weapons']
+  weapons = data.weapons
   for (i = 0; i < weapons.length; i++) {
     option = document.createElement('option')
     option.value = i
@@ -27,20 +37,12 @@ function loadContent() {
   switchWeapon(0)
 }
 
-// Get loading transition value
-
-function getDelay() {
-  style = window.getComputedStyle(loading).getPropertyValue('transition')
-  str = style.split(' ')[1]
-  value = parseInt(str.substring(0, str.length - 1).replace(/0./g, ''))
-  return value *= 100
-}
-
 // Load weapon
 
 function switchWeapon(index) {
   frame.innerHTML = ""
-  weapon = data['weapons'][index]
+  preview.innerHTML = ""
+  weapon = data.weapons[index]
   for (i = 0; i < weapon.nodelist.length; i++) {
     node = weapon.nodelist[i]
     part = weapon.nodelist[i].partslist[0]
@@ -48,6 +50,7 @@ function switchWeapon(index) {
     img.src = part.src
     img.style.zIndex = node.zlevel
     img.id = "gun|" + node.name
+    data.currentparts.push(0)
     img.onload = function() {
       width = this.width
       height = this.height
@@ -61,15 +64,38 @@ function switchWeapon(index) {
         if (preview.style.width === '') {
           preview.style.width = width / 2 + "px"
           preview.style.height = height / 2 + "px"
+          hub.style.height = height / 2 + "px"
+          menu.style.width = "calc(80% - "  + width / 2 + "px)"
         }
         this.id = "preview|" + this.id.split('|')[1]
         preview.appendChild(this)
       }
     }
   }
+  createMenu(index)
+}
+
+// Create parts menu
+
+function createMenu(index) {
+  menu.innerHTML = ""
+  weapon = data.weapons[index]
+  for (i = 0; i < weapon.nodelist.length; i++) {
+    node = weapon.nodelist[i]
+    item = document.createElement("div")
+    item.innerHTML = formatName(node.name)
+    item.className = "node_button"
+    menu.appendChild(item)
+  }
   setTimeout(function() {
     switchLoading()
   }, 200)
+}
+
+// Format name
+
+function formatName(string) {
+  return string.replace(/_/g, ' ').toUpperCase()
 }
 
 // Switch loading status
@@ -101,7 +127,9 @@ function switchLoading() {
 
 // Log all data
 
-function logData(data) {
+function logData() {
+  weapons = data.weapons
+  // Log weapons, nodes and parts
   for (i = 0; i < weapons.length; i++) {
     w_buff = weapons[i].nodelist
     console.log("|_Weapon : " + weapons[i].name)
@@ -114,6 +142,11 @@ function logData(data) {
       console.log("|  |")
     }
     console.log("|")
+  }
+  // Log current parts
+  parts = data.currentparts
+  for (i = 0; i < parts.length; i++) {
+    console.log("Part at index " + i + " : " + parts[i])
   }
   console.log("Data log done !")
 }

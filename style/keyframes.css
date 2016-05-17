@@ -117,70 +117,70 @@
 @keyframes loading_text {
   0% {
     color: rgb(var(--red));
-    text-shadow: 0px 0px 4px rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
   }
   6% {
     color: rgb(var(--red));
-    text-shadow: 0px 0px 4px rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
   }
   12% {
     color: rgb(var(--blue));
-    text-shadow: 0px 0px 4px rgb(var(--blue));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--blue));
   }
   18% {
     color: rgb(var(--blue));
-    text-shadow: 0px 0px 4px rgb(var(--blue));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--blue));
   }
   25% {
     color: rgb(var(--blue));
-    text-shadow: 0px 0px 4px rgb(var(--blue));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--blue));
   }
   31% {
     color: rgb(var(--blue));
-    text-shadow: 0px 0px 4px rgb(var(--blue));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--blue));
   }
   37% {
     color: rgb(var(--green));
-    text-shadow: 0px 0px 4px rgb(var(--green));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--green));
   }
   43% {
     color: rgb(var(--green));
-    text-shadow: 0px 0px 4px rgb(var(--green));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--green));
   }
   50% {
     color: rgb(var(--green));
-    text-shadow: 0px 0px 4px rgb(var(--green));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--green));
   }
   56% {
     color: rgb(var(--green));
-    text-shadow: 0px 0px 4px rgb(var(--green));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--green));
   }
   62% {
     color: rgb(var(--yellow));
-    text-shadow: 0px 0px 4px rgb(var(--yellow));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--yellow));
   }
   68% {
     color: rgb(var(--yellow));
-    text-shadow: 0px 0px 4px rgb(var(--yellow));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--yellow));
   }
   75% {
     color: rgb(var(--yellow));
-    text-shadow: 0px 0px 4px rgb(var(--yellow));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--yellow));
   }
   81% {
     color: rgb(var(--yellow));
-    text-shadow: 0px 0px 4px rgb(var(--yellow));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--yellow));
   }
   87% {
     color: rgb(var(--red));
-    text-shadow: 0px 0px 4px rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
   }
   93% {
     color: rgb(var(--red));
-    text-shadow: 0px 0px 4px rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
   }
   100% {
     color: rgb(var(--red));
-    text-shadow: 0px 0px 4px rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
   }
 }

@@ -13,9 +13,7 @@ function createWindow() {
   win = new BrowserWindow({
     fullscreen: true,
     title: 'Gun customizer',
-    webPreferences: {
-
-    }
+    webPreferences: {}
   })
   win.loadURL('file://' + __dirname + '/index.html')
   win.webContents.openDevTools()
@@ -25,15 +23,22 @@ function createWindow() {
   finishLoading(win)
 }
 
+// Finish loading process
+
 function finishLoading(win) {
   weapons = loadParts()
-  data = {
-    'weapons':  weapons
-  }
+  data = new Data(weapons)
   win.rendererSideName = data
   win.webContents.on('did-finish-load', function() {
     win.webContents.executeJavaScript('loadContent()')
   })
+}
+
+// Data object
+
+function Data(weapons) {
+  this.weapons = weapons
+  this.currentparts = []
 }
 
 // Weapon object
