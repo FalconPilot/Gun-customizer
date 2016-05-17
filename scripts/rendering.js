@@ -1,12 +1,61 @@
 const remote = require('electron').remote
+const frame = document.getElementById('frame')
+const loading = document.getElementById('loading')
+const gunlist = document.getElementById('gunlist')
+const data = remote.getCurrentWindow().rendererSideName
 
 // Handle content loading
 
 function loadContent() {
-  data = remote.getCurrentWindow().rendererSideName
   weapons = data['weapons']
-  defaultweapon = weapons[0]
-  logData(data)
+  for (i = 0; i < weapons.length; i++) {
+    option = document.createElement('option')
+    option.value = i
+    option.innerHTML = weapons[i].name.toUpperCase()
+    gunlist.appendChild(option)
+  }
+  defaultWeapon(data)
+  switchLoading()
+}
+
+
+// Load default weapon
+
+function defaultWeapon(data) {
+  weapon = data['weapons'][0]
+  for (i = 0; i < weapon.nodelist.length; i++) {
+    part = weapon.nodelist[i].partslist[0]
+    img = document.createElement('img')
+    img.src = part.src
+    img.style.zIndex = weapon.nodelist[i].zlevel
+    img.onload = function() {
+      frame.style.width = this.width + "px"
+      frame.appendChild(this)
+    }
+  }
+}
+
+// Switch loading status
+
+function switchLoading() {
+  nodes = loading.childNodes
+  if (loading.style.zIndex != '') {
+    loading.style.zIndex = null
+    loading.style.opacity = null
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].nodeType != 3) {
+        nodes[i].style.animation = null
+      }
+    }
+  } else {
+    loading.style.opacity = '0.0'
+    loading.style.zIndex = '-1'
+    for (i = 0; i < nodes.length; i++) {
+      if (nodes[i].nodeType != 3) {
+        nodes[i].style.animation = 'none'
+      }
+    }
+  }
 }
 
 // Log all data
@@ -26,19 +75,4 @@ function logData(data) {
     console.log("|")
   }
   console.log("Data log done !")
-}
-
-// Switch loading status
-
-function switchLoading(id) {
-  elem = document.getElementById(id)
-  if (elem.style.zIndex != '') {
-    elem.style.animation = null
-    elem.style.zIndex = null
-    elem.style.opacity = null
-  } else {
-    elem.style.opacity = '0.0'
-    elem.style.animation = 'none'
-    elem.style.zIndex = '-1'
-  }
 }
