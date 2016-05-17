@@ -4,6 +4,7 @@ const frame = document.getElementById('frame')
 const loading = document.getElementById('loading')
 const gunlist = document.getElementById('gunlist')
 const button = document.getElementById('change_gun')
+const delay = getDelay()
 
 // Handle content loading
 
@@ -19,13 +20,21 @@ function loadContent() {
     switchLoading()
     setTimeout(function() {
       switchWeapon(document.getElementById('gunlist').value)
-    }, 600)
+    }, delay)
   })
   switchWeapon(0)
 }
 
+// Get loading transition value
 
-// Load default weapon
+function getDelay() {
+  style = window.getComputedStyle(loading).getPropertyValue('transition')
+  str = style.split(' ')[1]
+  value = parseInt(str.substring(0, str.length - 1).replace(/0./g, ''))
+  return value *= 100
+}
+
+// Load weapon
 
 function switchWeapon(index) {
   frame.innerHTML = ""
@@ -61,7 +70,7 @@ function switchLoading() {
           nodes[i].style.animation = null
         }
       }
-    }, 600)
+    }, delay)
   } else {
     loading.style.opacity = '0.0'
     setTimeout(function() {
@@ -71,7 +80,7 @@ function switchLoading() {
           nodes[i].style.animation = 'none'
         }
       }
-    }, 600)
+    }, delay)
   }
 }
 

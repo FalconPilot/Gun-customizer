@@ -54,7 +54,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #333;
-  transition: 0.6s;
+  transition: 600ms;
   z-index: 1000;
 }
 
