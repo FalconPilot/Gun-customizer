@@ -9,6 +9,7 @@ const loading = document.getElementById('loading')
 const gunlist = document.getElementById('gunlist')
 const button =  document.getElementById('change_gun')
 const delay = getDelay()
+const currentparts = []
 
 // Get loading transition value
 
@@ -53,10 +54,28 @@ function switchPart(args) {
   pid = params[2]
   node = data.weapons[wid].nodelist[nid]
   part = node.partslist[pid]
-  prefixes = ['gun|', 'preview|']
-  for (i = 0; i < prefixes.length; i++) {
-    img = document.getElementById(prefixes[i] + node.name)
-    img.src = part.src
+  currentparts[nid] = pid
+  img = document.getElementById("gun|" + node.name)
+  img.src = part.src
+}
+
+// Switch preview
+
+function switchPreview(args) {
+  params = parseParams(args)
+  wid = params[0]
+  nid = params[1]
+  pid = params[2]
+  node = data.weapons[wid].nodelist[nid]
+  img = document.getElementById('preview|' + node.name)
+  oldpart = node.partslist[currentparts[nid]]
+  newpart = node.partslist[pid]
+  if (img.style.opacity === '') {
+    img.style.opacity = '1.0'
+    img.src = newpart.src
+  } else {
+    img.style.opacity = null
+    img.src = oldpart.src
   }
 }
 
@@ -74,6 +93,12 @@ function switchMenu(args) {
     item.innerHTML = formatName(parts[i].name)
     item.addEventListener("click", function() {
       switchPart(this.id)
+    })
+    item.addEventListener("mouseover", function() {
+      switchPreview(this.id)
+    })
+    item.addEventListener("mouseout", function() {
+      switchPreview(this.id)
     })
     list.appendChild(item)
   }
@@ -96,7 +121,7 @@ function switchWeapon(index) {
     preview_img.style.zIndex = node.zlevel
     img.id = "gun|" + node.name
     preview_img.id = "preview|" + node.name
-    data.currentparts.push(0)
+    currentparts.push(0)
     img.onload = function() {
       width = this.width
       height = this.height
@@ -195,7 +220,7 @@ function logData() {
     console.log("|")
   }
   // Log current parts
-  parts = data.currentparts
+  parts = currentparts
   for (i = 0; i < parts.length; i++) {
     console.log("Part at index " + i + " : " + parts[i])
   }
