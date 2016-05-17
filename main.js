@@ -1,6 +1,7 @@
 const electron = require('electron')
 const fs = require('fs')
 const path = require('path')
+const remote = electron.remote
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
@@ -21,11 +22,18 @@ function createWindow() {
   win.on('closed', function() {
     app.quit()
   })
-  loadContent()
+  finishLoading(win)
 }
 
-function loadContent() {
+function finishLoading(win) {
   weapons = loadParts()
+  data = {
+    'weapons':  weapons
+  }
+  win.rendererSideName = data
+  win.webContents.on('did-finish-load', function() {
+    win.webContents.executeJavaScript('loadContent()')
+  })
 }
 
 // Weapon object
