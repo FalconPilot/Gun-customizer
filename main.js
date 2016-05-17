@@ -47,16 +47,18 @@ function Weapon(name) {
 
 function GunNode(name) {
   params = name.split('|')
-  this.render = params[0].replace(/_/g, ' ')
-  this.name = name
-  this.zlevel = params[1]
+  this.name = params[1].replace(/_/g, ' ')
+  this.noderef = name
+  this.zlevel = params[0]
   this.partslist = []
 }
 
 // Part object
 
 function GunPart(src) {
-  this.name = src.split('/').reverse()[0].split('.')[0]
+  params = src.split('/').reverse()[0].split('.')[0].split('|')
+  this.id = params[0]
+  this.name = params[1]
   this.src = src
 }
 
