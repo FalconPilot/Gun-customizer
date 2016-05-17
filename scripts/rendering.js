@@ -1,6 +1,8 @@
 const remote = require('electron').remote
 const data = remote.getCurrentWindow().rendererSideName
 const frame = document.getElementById('frame')
+const menu = document.getElementById('menu')
+const preview = document.getElementById('preview')
 const loading = document.getElementById('loading')
 const gunlist = document.getElementById('gunlist')
 const button = document.getElementById('change_gun')
@@ -40,16 +42,29 @@ function switchWeapon(index) {
   frame.innerHTML = ""
   weapon = data['weapons'][index]
   for (i = 0; i < weapon.nodelist.length; i++) {
+    node = weapon.nodelist[i]
     part = weapon.nodelist[i].partslist[0]
     img = document.createElement('img')
     img.src = part.src
-    img.style.zIndex = weapon.nodelist[i].zlevel
+    img.style.zIndex = node.zlevel
+    img.id = "gun|" + node.name
     img.onload = function() {
+      width = this.width
+      height = this.height
       if (frame.style.width === '') {
-        frame.style.width = this.width + "px"
-        frame.style.height = this.height + "px"
+        frame.style.width = width + "px"
+        frame.style.height = height + "px"
       }
       frame.appendChild(this)
+      preview_img = this.cloneNode(false)
+      preview_img.onload = function() {
+        if (preview.style.width === '') {
+          preview.style.width = width / 2 + "px"
+          preview.style.height = height / 2 + "px"
+        }
+        this.id = "preview|" + this.id.split('|')[1]
+        preview.appendChild(this)
+      }
     }
   }
   setTimeout(function() {

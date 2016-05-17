@@ -118,3 +118,17 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+/*
+**  Preview
+*/
+
+#preview {
+  position: relative;
+}
+
+#preview img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
