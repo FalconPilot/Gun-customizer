@@ -82,26 +82,36 @@ function switchPreview(args) {
 // Switch node menu
 
 function switchMenu(args) {
-  list.innerHTML = ""
+  nodes = sublist.childNodes
   params = parseParams(args)
   wid = params[0]
   nid = params[1]
   parts = data.weapons[wid].nodelist[nid].partslist
-  for (i = 0; i < parts.length; i++) {
-    item = document.createElement("div")
-    item.id = "partswitch|" + wid + "|" + nid + "|" + i
-    item.innerHTML = formatName(parts[i].name)
-    item.addEventListener("click", function() {
-      switchPart(this.id)
-    })
-    item.addEventListener("mouseover", function() {
-      switchPreview(this.id)
-    })
-    item.addEventListener("mouseout", function() {
-      switchPreview(this.id)
-    })
-    list.appendChild(item)
+  subdelay = 0
+  for (i = 0; i < nodes.length; i++) {
+    subdelay = 200
+    console.log(nodes[i])
+    nodes[i].style.animation = "popout 200ms"
+    nodes[i].style.width = "0%"
   }
+  setTimeout(function() {
+    list.innerHTML = ""
+    for (i = 0; i < parts.length; i++) {
+      item = document.createElement("div")
+      item.id = "partswitch|" + wid + "|" + nid + "|" + i
+      item.innerHTML = formatName(parts[i].name)
+      item.addEventListener("click", function() {
+        switchPart(this.id)
+      })
+      item.addEventListener("mouseover", function() {
+        switchPreview(this.id)
+      })
+      item.addEventListener("mouseout", function() {
+        switchPreview(this.id)
+      })
+      list.appendChild(item)
+    }
+  }, subdelay)
 }
 
 // Load weapon
@@ -109,6 +119,7 @@ function switchMenu(args) {
 function switchWeapon(index) {
   frame.innerHTML = ""
   preview.innerHTML = ""
+  sublist.innerHTML = ""
   weapon = data.weapons[index]
   for (i = 0; i < weapon.nodelist.length; i++) {
     node = weapon.nodelist[i]

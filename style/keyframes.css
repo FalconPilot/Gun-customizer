@@ -184,3 +184,27 @@
     text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
   }
 }
+
+/*
+**  Sublist popup
+*/
+
+@keyframes popup {
+  from {
+    width: 0%;
+  } to {
+    width: 90%;
+  }
+}
+
+/*
+**  Sublist popout
+*/
+
+@keyframes popout {
+  from {
+    width: 90%;
+  } to {
+    width: 0%;
+  }
+}

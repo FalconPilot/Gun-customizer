@@ -203,7 +203,9 @@ body {
   padding: 5px;
   margin-bottom: 5px;
   text-align: center;
+  white-space: nowrap;
   background-color: rgb(var(--yellow));
+  animation: popup 200ms;
   transition: 0.1s;
 }
 
