@@ -4,6 +4,7 @@ const frame =   document.getElementById('frame')
 const hub =     document.getElementById('hub')
 const menu =    document.getElementById('menu')
 const preview = document.getElementById('preview')
+const list =    document.getElementById('sublist')
 const loading = document.getElementById('loading')
 const gunlist = document.getElementById('gunlist')
 const button =  document.getElementById('change_gun')
@@ -37,6 +38,47 @@ function loadContent() {
   switchWeapon(0)
 }
 
+// Parse piped parameters
+
+function parseParams(args) {
+  return args.split('|').slice(1)
+}
+
+// Switch part
+
+function switchPart(args) {
+  params = parseParams(args)
+  wid = params[0]
+  nid = params[1]
+  pid = params[2]
+  node = data.weapons[wid].nodelist[nid]
+  part = node.partslist[pid]
+  prefixes = ['gun|', 'preview|']
+  for (i = 0; i < prefixes.length; i++) {
+    img = document.getElementById(prefixes[i] + node.name)
+    img.src = part.src
+  }
+}
+
+// Switch node menu
+
+function switchMenu(args) {
+  list.innerHTML = ""
+  params = parseParams(args)
+  wid = params[0]
+  nid = params[1]
+  parts = data.weapons[wid].nodelist[nid].partslist
+  for (i = 0; i < parts.length; i++) {
+    item = document.createElement("div")
+    item.id = "partswitch|" + wid + "|" + nid + "|" + i
+    item.innerHTML = formatName(parts[i].name)
+    item.addEventListener("click", function() {
+      switchPart(this.id)
+    })
+    list.appendChild(item)
+  }
+}
+
 // Load weapon
 
 function switchWeapon(index) {
@@ -47,9 +89,13 @@ function switchWeapon(index) {
     node = weapon.nodelist[i]
     part = weapon.nodelist[i].partslist[0]
     img = document.createElement('img')
+    preview_img = document.createElement('img')
     img.src = part.src
+    preview_img.src = part.src
     img.style.zIndex = node.zlevel
+    preview_img.style.zIndex = node.zlevel
     img.id = "gun|" + node.name
+    preview_img.id = "preview|" + node.name
     data.currentparts.push(0)
     img.onload = function() {
       width = this.width
@@ -58,18 +104,19 @@ function switchWeapon(index) {
         frame.style.width = width + "px"
         frame.style.height = height + "px"
       }
-      frame.appendChild(this)
       preview_img = this.cloneNode(false)
-      preview_img.onload = function() {
-        if (preview.style.width === '') {
-          preview.style.width = width / 2 + "px"
-          preview.style.height = height / 2 + "px"
-          hub.style.height = height / 2 + "px"
-          menu.style.width = "calc(80% - "  + width / 2 + "px)"
-        }
-        this.id = "preview|" + this.id.split('|')[1]
-        preview.appendChild(this)
+      frame.appendChild(this)
+    }
+    preview_img.onload = function() {
+      width = this.width
+      height = this.height
+      if (preview.style.width === '') {
+        preview.style.width = width / 2 + "px"
+        preview.style.height = height / 2 + "px"
+        hub.style.height = height / 2 + "px"
+        menu.style.width = "calc(80% - "  + width / 2 + "px)"
       }
+      preview.appendChild(this)
     }
   }
   createMenu(index)
@@ -85,6 +132,10 @@ function createMenu(index) {
     item = document.createElement("div")
     item.innerHTML = formatName(node.name)
     item.className = "node_button"
+    item.id = "nodeswitch|" + index + "|" + i
+    item.addEventListener("click", function() {
+      switchMenu(this.id)
+    })
     menu.appendChild(item)
   }
   setTimeout(function() {
