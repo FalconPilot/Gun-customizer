@@ -70,7 +70,7 @@ function GunPart(src) {
 // Parts loading
 
 function loadParts() {
-  gunsdir = __dirname + '/resources/guns'
+  gunsdir = __dirname + '/assets/guns'
   guns = getDirectories(gunsdir)
   weapons = []
   for (i = 0; i < guns.length; i++) {
