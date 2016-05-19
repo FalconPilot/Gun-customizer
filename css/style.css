@@ -26,7 +26,7 @@
 body {
   font-family: 'dosisregular';
   margin: 0;
-  background-color: #FFF;
+  background-color: #333;
 }
 
 .title {
@@ -35,11 +35,42 @@ body {
 }
 
 /*
-**  Frame classes
+**  Container
 */
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+/*
+**  Global frame
+*/
+
+.global_frame {
+  --frame-radius: 1em;
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #CCC;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--frame-radius);
+  overflow: hidden;
+}
+
+/*
+**  Gun frame classes
+*/
+
+#frame {
+  position: relative;
+}
 
 #frame img {
   position: absolute;
+  max-width: 100%;
 }
 
 /*
@@ -61,12 +92,29 @@ body {
   z-index: 1000;
 }
 
-#loading p {
+.loading {
   position: relative;
   color: rgb(var(--red));
   text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
   z-index: 1;
   animation: loading_text var(--loading-rate) ease-in-out infinite;
+}
+
+#load_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+#load_title:hover {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#load_title img {
+  max-width: 50%;
+  border-radius: 10%;
 }
 
 .circle {
@@ -83,6 +131,8 @@ body {
   border-radius: 50%;
   background-color: rgba(var(--red), var(--circle-bg-opa));
   animation: loading_circle var(--loading-rate) ease-in-out infinite;
+  transition: 0.3s;
+  opacity: 0.0
 }
 
 /*
@@ -94,9 +144,9 @@ body {
   padding: 10px;
   text-align: center;
   color: #333;
-  background-color: rgb(var(--red));
+  background-color: #555;
   text-shadow: 0px 0px 1px #FFF;
-  box-shadow: 0px 2px 5px #333;
+  box-shadow: 0px 0px 5px #000;
   z-index: 100;
 }
 
@@ -121,17 +171,11 @@ body {
 #hub {
   position: relative;
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid #CCC;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 0px 5px #333;
   z-index: 50;
-}
-
-/*
-**  Main frame
-*/
-
-#frame {
-  position: relative;
-  margin: auto;
 }
 
 /*
@@ -140,33 +184,30 @@ body {
 
 #menu {
   height: 100%;
+  width: 15%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .node_button {
   --button-margin: 6px;
-  width: 90px;
-  margin: var(--button-margin) 4px;
+  width: 85%;
+  margin-top: 5px;
   padding: 5px;
   text-align: center;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: bold;
-  color: rgb(var(--blue-shadow));
-  background-color: rgb(var(--blue));
-  box-shadow: 0px calc(var(--button-margin) - 1px) 0px rgb(var(--blue-shadow));
-  border-radius: 5px;
-  transition: 0.1s linear;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(var(--blue), 0.5);
+  transition: 0.1s;
 }
 
 .node_button:hover {
-  margin-top: calc(var(--button-margin) + 3px);
-  margin-bottom: calc(var(--button-margin) - 3px);
-  box-shadow: 0px calc(var(--button-margin) - 4px) 0px rgb(var(--blue-shadow));
+  width: 100%;
   cursor: pointer;
-  transition: 0.1s linear;
+  transition: 0.1s;
 }
 
 /*
@@ -181,7 +222,6 @@ body {
 #preview img {
   position: absolute;
   width: 100%;
-  height: 100%;
   opacity: 0.2;
   transition: 0.3s;
 }
@@ -192,7 +232,7 @@ body {
 
 #sublist {
   padding-top: 20px;
-  width: 20%;
+  width: 100%;
   height: calc(100% - 20px);
   display: flex;
   flex-direction: column;
@@ -207,7 +247,7 @@ body {
   margin-bottom: 5px;
   text-align: center;
   white-space: nowrap;
-  background-color: rgb(var(--yellow));
+  background-color: rgba(var(--yellow), 0.5);
   animation: popup 200ms;
   transition: 0.1s;
 }

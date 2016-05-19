@@ -2,6 +2,7 @@ const electron = require('electron')
 const fs = require('fs')
 const path = require('path')
 const package = require('./package.json')
+const vocab = require('./src/vocab.json')
 const remote = electron.remote
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -31,7 +32,7 @@ function finishLoading(win) {
   data = new Data(weapons)
   win.rendererSideName = data
   win.webContents.on('did-finish-load', function() {
-    win.webContents.executeJavaScript('loadContent()')
+    win.webContents.executeJavaScript('initialize()')
   })
 }
 
@@ -40,6 +41,7 @@ function finishLoading(win) {
 function Data(weapons) {
   this.weapons = weapons
   this.pkg = package
+  this.vocab = vocab
 }
 
 // Weapon object
@@ -53,7 +55,7 @@ function Weapon(name) {
 
 function GunNode(name) {
   params = name.split('|')
-  this.name = params[1].replace(/_/g, ' ')
+  this.name = params[1]
   this.noderef = name
   this.zlevel = params[0]
   this.partslist = []

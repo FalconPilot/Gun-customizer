@@ -12,8 +12,8 @@
   <body>
     <!-- Loading screen -->
     <div id="loading">
-      <p>Loading</p>
-      <div class="circle"></div>
+      <p id="load_title"></p>
+      <div id="loadcircle"></div>
     </div>
     <!-- Page header -->
     <div id="header">
@@ -21,14 +21,21 @@
       <select id="gunlist"></select>
       <button id="change_gun">Change weapon</button>
     </div>
-    <!-- Parts menu -->
-    <div id="hub">
+    <!-- Container -->
+    <div class="container">
+      <!-- Nodes menu -->
       <div id="menu"></div>
-      <div id="preview"></div>
-      <div id="sublist"></div>
+      <!-- Global frame -->
+      <div class="global_frame">
+        <!-- Top hub -->
+        <div id="hub">
+          <div id="preview"></div>
+          <div id="sublist"></div>
+        </div>
+        <!-- Gun frame -->
+        <div id="frame"></div>
+      </div>
     </div>
-    <!-- Main frame -->
-    <div id="frame"></div>
   </body>
   <script src="src/rendering.js"></script>
 </html>

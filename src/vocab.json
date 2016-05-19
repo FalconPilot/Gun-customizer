@@ -1,0 +1,28 @@
+{
+  "en": {
+    "loading"             : "Loading",
+
+    "barrel"              : "Barrel",
+    "bolt"                : "Bolt",
+    "bottom_accessory"    : "Bottom accessory",
+    "charging_handle"     : "Charging handle",
+    "frame"               : "Frame",
+    "gas_block"           : "Gas block",
+    "gas_tube"            : "Gas tube",
+    "grip"                : "Grip",
+    "handguard"           : "Handguard",
+    "lower_handguard"     : "Lower handguard",
+    "lower_receiver"      : "Lower receiver",
+    "magazine"            : "Magazine",
+    "muzzle"              : "Muzzle",
+    "optic"               : "Optic",
+    "receiver"            : "Receiver",
+    "side_accessory"      : "Side accessory",
+    "slide"               : "Slide",
+    "stock"               : "Stock",
+    "top_accessory"       : "Top accessory",
+    "top_cover"           : "Top cover",
+    "upper_handguard"     : "Upper handguard",
+    "upper_receiver"      : "Upper receiver"
+  }
+}

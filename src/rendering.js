@@ -2,17 +2,35 @@ const remote = require('electron').remote
 const data = remote.getCurrentWindow().rendererSideName
 
 const button =  document.getElementById('change_gun')
+const circle =  document.getElementById('loadcircle')
 const frame =   document.getElementById('frame')
 const gunlist = document.getElementById('gunlist')
 const hub =     document.getElementById('hub')
+const preload = document.getElementById('load_title')
 const loading = document.getElementById('loading')
 const menu =    document.getElementById('menu')
 const preview = document.getElementById('preview')
 const list =    document.getElementById('sublist')
 const title =   document.getElementById('title')
-
 const delay = getDelay()
-const currentparts = []
+
+let currentparts = []
+let lang = ""
+
+// Script initialization
+
+function initialize() {
+  langs = Object.keys(data.vocab)
+  for (i = 0; i < langs.length; i++) {
+    img = document.createElement("img")
+    img.src = "assets/misc/flag_" + langs[i] + ".png"
+    img.id = "lang|" + langs[i]
+    img.addEventListener("click", function() {
+      loadContent(this.id)
+    })
+    preload.appendChild(img)
+  }
+}
 
 // Get loading transition value
 
@@ -25,22 +43,33 @@ function getDelay() {
 
 // Handle content loading
 
-function loadContent() {
-  title.innerHTML = data.pkg.productName
-  weapons = data.weapons
-  for (i = 0; i < weapons.length; i++) {
-    option = document.createElement('option')
-    option.value = i
-    option.innerHTML = weapons[i].name.toUpperCase()
-    gunlist.appendChild(option)
-  }
-  button.addEventListener("click", function() {
-    switchLoading()
-    setTimeout(function() {
-      switchWeapon(document.getElementById('gunlist').value)
-    }, delay)
-  })
-  switchWeapon(0)
+function loadContent(params) {
+  lang = data.vocab[parseParams(params)[0]]
+  preload.style.opacity = "0.0"
+  setTimeout(function() {
+    preload.innerHTML = lang.loading;
+    preload.className = "loading"
+    preload.style.opacity = "1.0"
+    circle.className = "circle"
+    circle.style.opacity = "1.0"
+  }, 300)
+  setTimeout(function() {
+    title.innerHTML = data.pkg.productName
+    weapons = data.weapons
+    for (i = 0; i < weapons.length; i++) {
+      option = document.createElement('option')
+      option.value = i
+      option.innerHTML = weapons[i].name.toUpperCase()
+      gunlist.appendChild(option)
+    }
+    button.addEventListener("click", function() {
+      switchLoading()
+      setTimeout(function() {
+        switchWeapon(document.getElementById('gunlist').value)
+      }, delay)
+    })
+    switchWeapon(0)
+  }, 800)
 }
 
 // Parse piped parameters
@@ -94,7 +123,6 @@ function switchMenu(args) {
   subdelay = 0
   for (i = 0; i < nodes.length; i++) {
     subdelay = 200
-    console.log(nodes[i])
     nodes[i].style.animation = "popout 200ms"
     nodes[i].style.width = "0%"
   }
@@ -140,17 +168,17 @@ function switchWeapon(index) {
     img.onload = function() {
       width = this.width
       height = this.height
-      preview_img = this.cloneNode(false)
+      frame.style.height = height + "px"
       frame.appendChild(this)
     }
     preview_img.onload = function() {
       width = this.width
       height = this.height
-      if (preview.style.width === '') {
-        preview.style.width = width / 2 + "px"
-        preview.style.height = height / 2 + "px"
+      console.log("prout")
+      if (preview.style.maxWidth === '') {
+        preview.style.maxWidth = width / 2 + "px"
+        preview.style.maxHeight = height / 2 + "px"
         hub.style.height = height / 2 + "px"
-        menu.style.width = "calc(80% - "  + width / 2 + "px)"
       }
       preview.appendChild(this)
     }
@@ -166,7 +194,7 @@ function createMenu(index) {
   for (i = 0; i < weapon.nodelist.length; i++) {
     node = weapon.nodelist[i]
     item = document.createElement("div")
-    item.innerHTML = formatName(node.name)
+    item.innerHTML = lang[node.name]
     item.className = "node_button"
     item.id = "nodeswitch|" + index + "|" + i
     item.addEventListener("click", function() {
