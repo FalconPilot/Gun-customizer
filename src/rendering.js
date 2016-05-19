@@ -1,5 +1,6 @@
 const remote = require('electron').remote
 const data = remote.getCurrentWindow().rendererSideName
+
 const frame =   document.getElementById('frame')
 const hub =     document.getElementById('hub')
 const menu =    document.getElementById('menu')
@@ -8,6 +9,7 @@ const list =    document.getElementById('sublist')
 const loading = document.getElementById('loading')
 const gunlist = document.getElementById('gunlist')
 const button =  document.getElementById('change_gun')
+
 const delay = getDelay()
 const currentparts = []
 
