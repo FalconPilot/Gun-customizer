@@ -14,6 +14,7 @@ const list =    document.getElementById('sublist')
 const title =   document.getElementById('title')
 const delay = getDelay()
 
+let weaponparts = []
 let currentparts = []
 let lang = ""
 
@@ -44,6 +45,12 @@ function getDelay() {
 // Handle content loading
 
 function loadContent(params) {
+  for (i = 0; i < data.weapons.length; i++) {
+    key = data.weapons[i].nodelist.length
+    console.log(key)
+    weaponparts.push(new Array(data.weapons[i].nodelist.length).fill(0))
+  }
+  console.log(weaponparts)
   lang = data.vocab[parseParams(params)[0]]
   preload.style.opacity = "0.0"
   setTimeout(function() {
@@ -152,10 +159,13 @@ function switchWeapon(index) {
   frame.innerHTML = ""
   preview.innerHTML = ""
   sublist.innerHTML = ""
+  currentparts = weaponparts[index]
   weapon = data.weapons[index]
   for (i = 0; i < weapon.nodelist.length; i++) {
+    subid = currentparts[i]
+    console.log(subid)
     node = weapon.nodelist[i]
-    part = weapon.nodelist[i].partslist[0]
+    part = weapon.nodelist[i].partslist[subid]
     img = document.createElement('img')
     preview_img = document.createElement('img')
     img.src = part.src
@@ -164,7 +174,6 @@ function switchWeapon(index) {
     preview_img.style.zIndex = node.zlevel
     img.id = "gun|" + node.name
     preview_img.id = "preview|" + node.name
-    currentparts.push(0)
     img.onload = function() {
       width = this.width
       height = this.height
@@ -174,7 +183,6 @@ function switchWeapon(index) {
     preview_img.onload = function() {
       width = this.width
       height = this.height
-      console.log("prout")
       if (preview.style.maxWidth === '') {
         preview.style.maxWidth = width / 2 + "px"
         preview.style.maxHeight = height / 2 + "px"
