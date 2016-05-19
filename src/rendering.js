@@ -1,14 +1,15 @@
 const remote = require('electron').remote
 const data = remote.getCurrentWindow().rendererSideName
 
+const button =  document.getElementById('change_gun')
 const frame =   document.getElementById('frame')
+const gunlist = document.getElementById('gunlist')
 const hub =     document.getElementById('hub')
+const loading = document.getElementById('loading')
 const menu =    document.getElementById('menu')
 const preview = document.getElementById('preview')
 const list =    document.getElementById('sublist')
-const loading = document.getElementById('loading')
-const gunlist = document.getElementById('gunlist')
-const button =  document.getElementById('change_gun')
+const title =   document.getElementById('title')
 
 const delay = getDelay()
 const currentparts = []
@@ -25,6 +26,7 @@ function getDelay() {
 // Handle content loading
 
 function loadContent() {
+  title.innerHTML = data.pkg.productName
   weapons = data.weapons
   for (i = 0; i < weapons.length; i++) {
     option = document.createElement('option')
@@ -57,7 +59,7 @@ function switchPart(args) {
   node = data.weapons[wid].nodelist[nid]
   part = node.partslist[pid]
   currentparts[nid] = pid
-  img = document.getElementById("gun|" + node.name)
+  img = document.getElementById('gun|' + node.name)
   img.src = part.src
 }
 

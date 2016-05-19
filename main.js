@@ -1,6 +1,7 @@
 const electron = require('electron')
 const fs = require('fs')
 const path = require('path')
+const package = require('./package.json')
 const remote = electron.remote
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
@@ -38,7 +39,7 @@ function finishLoading(win) {
 
 function Data(weapons) {
   this.weapons = weapons
-  this.currentparts = []
+  this.pkg = package
 }
 
 // Weapon object
