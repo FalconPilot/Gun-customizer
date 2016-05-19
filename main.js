@@ -13,7 +13,7 @@ let mainWindow
 function createWindow() {
   win = new BrowserWindow({
     fullscreen: true,
-    title: 'Gun customizer',
+    title: package.productName,
     webPreferences: {}
   })
   win.loadURL('file://' + __dirname + '/index.html')
