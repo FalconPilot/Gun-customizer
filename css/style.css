@@ -13,7 +13,7 @@
   --green:   150, 250, 150;
   --blue:    100, 200, 250;
   --blue-shadow: 50, 100, 150;
-  --circle-radius: 5.5em;
+  --circle-radius: 5.8em;
   --circle-bg-opa: 0.2;
   --loading-rate: 8000ms;
   --loading-shadow-radius: 1px;
@@ -107,14 +107,20 @@ body {
   transition: 0.3s;
 }
 
-#load_title:hover {
-  cursor: pointer;
-  transition: 0.3s;
+#load_title img {
+  margin: 20px;
+  width: 150px;
+  max-width: 50%;
+  border: 3px double #CCC;
+  border-radius: 10%;
+  opacity: 0.6;
+  transition: 0.2s;
 }
 
-#load_title img {
-  max-width: 50%;
-  border-radius: 10%;
+#load_title img:hover {
+  cursor: pointer;
+  opacity: 1.0;
+  transition: 0.2s;
 }
 
 .circle {
