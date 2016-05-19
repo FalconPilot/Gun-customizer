@@ -1,0 +1,210 @@
+/*
+**  Document variables
+*/
+
+:root {
+  --square: 15%;
+}
+
+/*
+**  Spinning animation
+*/
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } to {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+**  Loading circle animation
+*/
+
+@keyframes loading_circle {
+  0% {
+    border-radius: 50%;
+    transform: rotate(0deg);
+    background-color: rgba(var(--red), var(--circle-bg-opa));
+  }
+  6% {
+    border-radius: var(--square);
+    transform: rotate(0deg);
+    background-color: rgba(var(--red), var(--circle-bg-opa));
+  }
+  12% {
+    border-radius: var(--square);
+    transform: rotate(90deg);
+    background-color: rgba(var(--blue), var(--circle-bg-opa));
+  }
+  18% {
+    border-radius: 50%;
+    transform: rotate(90deg);
+    background-color: rgba(var(--blue), var(--circle-bg-opa));
+  }
+  25% {
+    border-radius: 50%;
+    transform: rotate(90deg);
+    background-color: rgba(var(--blue), var(--circle-bg-opa));
+  }
+  31% {
+    border-radius: var(--square);
+    transform: rotate(90deg);
+    background-color: rgba(var(--blue), var(--circle-bg-opa));
+  }
+  37% {
+    border-radius: var(--square);
+    transform: rotate(180deg);
+    background-color: rgba(var(--green), var(--circle-bg-opa));
+  }
+  43% {
+    border-radius: 50%;
+    transform: rotate(180deg);
+    background-color: rgba(var(--green), var(--circle-bg-opa));
+  }
+  50% {
+    border-radius: 50%;
+    transform: rotate(180deg);
+    background-color: rgba(var(--green), var(--circle-bg-opa));
+  }
+  56% {
+    border-radius: var(--square);
+    transform: rotate(180deg);
+    background-color: rgba(var(--green), var(--circle-bg-opa));
+  }
+  62% {
+    border-radius: var(--square);
+    transform: rotate(270deg);
+    background-color: rgba(var(--yellow), var(--circle-bg-opa));
+  }
+  68% {
+    border-radius: 50%;
+    transform: rotate(270deg);
+    background-color: rgba(var(--yellow), var(--circle-bg-opa));
+  }
+  75% {
+    border-radius: 50%;
+    transform: rotate(270deg);
+    background-color: rgba(var(--yellow), var(--circle-bg-opa));
+  }
+  81% {
+    border-radius: var(--square);
+    transform: rotate(270deg);
+    background-color: rgba(var(--yellow), var(--circle-bg-opa));
+  }
+  87% {
+    border-radius: var(--square);
+    transform: rotate(360deg);
+    background-color: rgba(var(--red), var(--circle-bg-opa));
+  }
+  93% {
+    border-radius: 50%;
+    transform: rotate(360deg);
+    background-color: rgba(var(--red), var(--circle-bg-opa));
+  }
+  100% {
+    border-radius: 50%;
+    transform: rotate(360deg);
+    background-color: rgba(var(--red), var(--circle-bg-opa));
+  }
+}
+
+/*
+**  Loading text animation
+*/
+
+@keyframes loading_text {
+  0% {
+    color: rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
+  }
+  6% {
+    color: rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
+  }
+  12% {
+    color: rgb(var(--blue));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--blue));
+  }
+  18% {
+    color: rgb(var(--blue));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--blue));
+  }
+  25% {
+    color: rgb(var(--blue));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--blue));
+  }
+  31% {
+    color: rgb(var(--blue));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--blue));
+  }
+  37% {
+    color: rgb(var(--green));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--green));
+  }
+  43% {
+    color: rgb(var(--green));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--green));
+  }
+  50% {
+    color: rgb(var(--green));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--green));
+  }
+  56% {
+    color: rgb(var(--green));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--green));
+  }
+  62% {
+    color: rgb(var(--yellow));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--yellow));
+  }
+  68% {
+    color: rgb(var(--yellow));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--yellow));
+  }
+  75% {
+    color: rgb(var(--yellow));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--yellow));
+  }
+  81% {
+    color: rgb(var(--yellow));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--yellow));
+  }
+  87% {
+    color: rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
+  }
+  93% {
+    color: rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
+  }
+  100% {
+    color: rgb(var(--red));
+    text-shadow: 0px 0px var(--loading-shadow-radius) rgb(var(--red));
+  }
+}
+
+/*
+**  Sublist popup
+*/
+
+@keyframes popup {
+  from {
+    height: 0;
+  } to {
+    height: 100%;
+  }
+}
+
+/*
+**  Sublist popout
+*/
+
+@keyframes popout {
+  from {
+    height: 100%;
+  } to {
+    height: 0;
+  }
+}

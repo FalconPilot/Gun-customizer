@@ -11,11 +11,13 @@ const loading = document.getElementById('loading')
 const menu =    document.getElementById('menu')
 const preview = document.getElementById('preview')
 const title =   document.getElementById('title')
+const version = document.getElementById('version')
 const delay = getDelay()
 
 let weaponparts = []
 let currentparts = []
 let lang = ""
+let selected
 
 // Script initialization
 
@@ -53,6 +55,7 @@ function loadContent(params) {
   setTimeout(function() {
     button.innerHTML = lang.switch;
     preload.innerHTML = lang.loading;
+    version.innerHTML = "Version " + data.pkg.version
     preload.className = "loading"
     preload.style.opacity = "1.0"
     circle.className = "circle"
@@ -117,30 +120,40 @@ function switchPreview(args) {
   }
 }
 
+// Return next node
+
+function insertAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
 // Switch node menu
 
 function switchMenu(args) {
-  sublist = document.getElementById('list')
+  if (selected) {
+    selected.style.backgroundColor = null
+    selected.style.width = null
+  }
+  selected = document.getElementById(args)
+  selected.style.backgroundColor = "rgba(var(--red), 0.5)"
+  selected.style.width = "100%"
+  sublist = document.getElementById('sublist')
   params = parseParams(args)
   wid = params[0]
   nid = params[1]
   parts = data.weapons[wid].nodelist[nid].partslist
-  subdelay = 0
   if (sublist) {
-    nodes = sublist.childNodes
-    for (i = 0; i < nodes.length; i++) {
-      subdelay = 200
-      nodes[i].style.animation = "popout 200ms"
-      nodes[i].style.width = "0%"
-    }
+    subdelay = 200
+    sublist.style.height = "0"
+  } else {
+    subdelay = 0
   }
   setTimeout(function() {
     list = document.getElementById('sublist')
     if (list) {
       list.outerHTML = ""
     }
-    sublist = document.createElement("div")
-    sublist.id = sublist
+    div = document.createElement("div")
+    div.id = "sublist"
     weapon = data.weapons[wid]
     node = weapon.nodelist[nid]
     for (i = 0; i < parts.length; i++) {
@@ -157,10 +170,14 @@ function switchMenu(args) {
       item.addEventListener("mouseout", function() {
         switchPreview(this.id)
       })
-      sublist.appendChild(item)
+      div.appendChild(item)
+      height = item.clientHeight
     }
+    insertAfter(selected, div)
+    setTimeout(function() {
+      div.style.height = (31 * i) + "px"
+    }, 20)
   }, subdelay)
-  console.log(sublist)
 }
 
 // Load weapon

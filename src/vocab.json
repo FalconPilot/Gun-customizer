@@ -23,6 +23,7 @@
     "stock"               : "Stock",
     "top_accessory"       : "Top accessory",
     "top_cover"           : "Top cover",
+    "trigger_assembly"    : "Trigger assembly",
     "upper_handguard"     : "Upper handguard",
     "upper_receiver"      : "Upper receiver",
 
@@ -80,6 +81,31 @@
       "bottom_1"            : "Foregrip",
 
       "top_1"               : "Laser pointer"
+    },
+
+    "ar-15": {
+      "none"                : "None"
+    },
+
+    "m1911": {
+      "none"                : "None",
+
+      "mag_1"               : "Standard magazine",
+
+      "barrel_1"            : "Standard barrel",
+
+      "muzzle_1"            : "Osprey suppressor",
+
+      "frame_1"             : "Classic frame",
+      "frame_2"             : "Modern frame",
+
+      "grip_1"              : "Wooden grip",
+      "grip_2"              : "Tan grip",
+
+      "slide_1"             : "Classic slide",
+      "slide_2"             : "Tactical slide",
+
+      "bottom_1"            : "Sweetwater laser"
     }
   }
 }
