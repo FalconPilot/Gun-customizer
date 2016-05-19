@@ -10,7 +10,6 @@ const preload = document.getElementById('load_title')
 const loading = document.getElementById('loading')
 const menu =    document.getElementById('menu')
 const preview = document.getElementById('preview')
-const list =    document.getElementById('sublist')
 const title =   document.getElementById('title')
 const delay = getDelay()
 
@@ -47,13 +46,12 @@ function getDelay() {
 function loadContent(params) {
   for (i = 0; i < data.weapons.length; i++) {
     key = data.weapons[i].nodelist.length
-    console.log(key)
     weaponparts.push(new Array(data.weapons[i].nodelist.length).fill(0))
   }
-  console.log(weaponparts)
   lang = data.vocab[parseParams(params)[0]]
   preload.style.opacity = "0.0"
   setTimeout(function() {
+    button.innerHTML = lang.switch;
     preload.innerHTML = lang.loading;
     preload.className = "loading"
     preload.style.opacity = "1.0"
@@ -122,23 +120,34 @@ function switchPreview(args) {
 // Switch node menu
 
 function switchMenu(args) {
-  nodes = sublist.childNodes
+  sublist = document.getElementById('list')
   params = parseParams(args)
   wid = params[0]
   nid = params[1]
   parts = data.weapons[wid].nodelist[nid].partslist
   subdelay = 0
-  for (i = 0; i < nodes.length; i++) {
-    subdelay = 200
-    nodes[i].style.animation = "popout 200ms"
-    nodes[i].style.width = "0%"
+  if (sublist) {
+    nodes = sublist.childNodes
+    for (i = 0; i < nodes.length; i++) {
+      subdelay = 200
+      nodes[i].style.animation = "popout 200ms"
+      nodes[i].style.width = "0%"
+    }
   }
   setTimeout(function() {
-    list.innerHTML = ""
+    list = document.getElementById('sublist')
+    if (list) {
+      list.outerHTML = ""
+    }
+    sublist = document.createElement("div")
+    sublist.id = sublist
+    weapon = data.weapons[wid]
+    node = weapon.nodelist[nid]
     for (i = 0; i < parts.length; i++) {
+      name = parts[i].name
       item = document.createElement("div")
       item.id = "partswitch|" + wid + "|" + nid + "|" + i
-      item.innerHTML = formatName(parts[i].name)
+      item.innerHTML = lang[weapon.name][name]
       item.addEventListener("click", function() {
         switchPart(this.id)
       })
@@ -148,9 +157,10 @@ function switchMenu(args) {
       item.addEventListener("mouseout", function() {
         switchPreview(this.id)
       })
-      list.appendChild(item)
+      sublist.appendChild(item)
     }
   }, subdelay)
+  console.log(sublist)
 }
 
 // Load weapon
@@ -158,12 +168,10 @@ function switchMenu(args) {
 function switchWeapon(index) {
   frame.innerHTML = ""
   preview.innerHTML = ""
-  sublist.innerHTML = ""
   currentparts = weaponparts[index]
   weapon = data.weapons[index]
   for (i = 0; i < weapon.nodelist.length; i++) {
     subid = currentparts[i]
-    console.log(subid)
     node = weapon.nodelist[i]
     part = weapon.nodelist[i].partslist[subid]
     img = document.createElement('img')
@@ -213,12 +221,6 @@ function createMenu(index) {
   setTimeout(function() {
     switchLoading()
   }, 200)
-}
-
-// Format name
-
-function formatName(string) {
-  return string.replace(/_/g, ' ').toUpperCase()
 }
 
 // Switch loading status

@@ -1,7 +1,7 @@
 {
   "en": {
     "loading"             : "Loading",
-    "none"                : "None",
+    "switch"              : "Change weapon",
 
     "barrel"              : "Barrel",
     "bolt"                : "Bolt",
@@ -24,6 +24,62 @@
     "top_accessory"       : "Top accessory",
     "top_cover"           : "Top cover",
     "upper_handguard"     : "Upper handguard",
-    "upper_receiver"      : "Upper receiver"
+    "upper_receiver"      : "Upper receiver",
+
+    "akm": {
+      "none"                : "None",
+
+      "optic_1"             : "Kobra",
+      "optic_2"             : "PSO-1",
+
+      "stock_1"             : "Plastic stock",
+      "stock_2"             : "Wooden stock",
+      "stock_3"             : "Folding stock",
+      "stock_4"             : "AR Stock",
+
+      "mag_1"               : "Steel magazine",
+      "mag_2"               : "Bakelite magazine",
+      "mag_3"               : "Tactical magazine",
+      "mag_4"               : "Lightweight magazine",
+      "mag_5"               : "RPK magazine",
+
+      "bolt_1"              : "Standard bolt",
+      "bolt_2"              : "Heavy bolt",
+
+      "barrel_1"            : "Standard barrel",
+
+      "muzzle_1"            : "Flash hider",
+      "muzzle_2"            : "Compensator",
+
+      "receiver_1"          : "Stamped receiver",
+      "receiver_2"          : "Forged receiver",
+      "receiver_3"          : "Saiga receiver",
+
+      "grip_1"              : "Bakelite grip",
+      "grip_2"              : "Tactical grip",
+      "grip_3"              : "Compact grip",
+
+      "cover_1"             : "Smooth cover",
+      "cover_2"             : "Ribbed cover",
+
+      "gas_tube_1"          : "Standard tube",
+      "gas_tube_2"          : "Fluted tube",
+
+      "block_1"             : "Standard gas block",
+      "block_2"             : "Tactical gas block",
+
+      "upper_1"             : "Plastic handguard",
+      "upper_2"             : "Wooden handguard",
+      "upper_3"             : "Railed handguard",
+      "upper_4"             : "Scout rail",
+
+      "lower_1"             : "Plastic handguard",
+      "lower_2"             : "Wooden handguard",
+      "lower_3"             : "Railed handguard",
+
+      "bottom_1"            : "Foregrip",
+
+      "top_1"               : "Laser pointer"
+    }
   }
 }
