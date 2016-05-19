@@ -1,5 +1,5 @@
 {
-  "en": {
+  "eng": {
     "loading"             : "Loading",
     "switch"              : "Change weapon",
 
@@ -84,7 +84,69 @@
     },
 
     "ar-15": {
-      "none"                : "None"
+      "none"                : "None",
+
+      "mag_1"               : "STANAG",
+      "mag_2"               : "PMAG",
+
+      "assembly_1"          : "Geissele",
+
+      "bolt_1"              : "Standard bolt",
+      "bolt_2"              : "Reinforced bolt",
+
+      "handle_1"            : "Standard handle",
+      "handle_2"            : "Ambidextrous handle",
+
+      "barrel_1"            : "Standard barrel",
+      "barrel_2"            : "Light barrel",
+
+      "tube_1"              : "Standard gas tube",
+
+      "block_1"             : "Fixed sight",
+      "block_2"             : "Low-profile gas block",
+
+      "muzzle_1"            : "Flash hider",
+      "muzzle_2"            : "Light compensator",
+      "muzzle_3"            : "Silencer",
+
+      "stock_1"             : "Standard stock",
+      "stock_2"             : "Rifle stock",
+      "stock_3"             : "PDW stock",
+      "stock_4"             : "SOCOM stock",
+
+      "lower_1"             : "VCW receiver",
+      "lower_2"             : "Noveske receiver",
+      "lower_3"             : "Tactical receiver",
+      "lower_4"             : "Lightweight receiver",
+
+      "grip_1"              : "Standard grip",
+      "grip_2"              : "BG-17 grip",
+      "grip_3"              : "Tactical grip",
+      "grip_4"              : "Ergo grip",
+
+      "upper_1"             : "VCW receiver",
+      "upper_2"             : "Tactical receiver",
+      "upper_3"             : "BCM receiver",
+
+      "handguard_1"         : "Standard handguard",
+      "handguard_2"         : "Standard RIS",
+      "handguard_3"         : "Noveske handguard",
+
+      "optic_1"             : "Carrying handle",
+      "optic_2"             : "Rear sight",
+      "optic_3"             : "Mepro RDS",
+      "optic_4"             : "EOTech",
+      "optic_5"             : "Short range scope",
+      "optic_6"             : "ACOG scope",
+
+      "bottom_1"            : "Foregrip",
+      "bottom_2"            : "Angled grip",
+
+      "top_1"               : "Laser pointer",
+      "top_2"               : "Flashlight",
+
+      "side_1"              : "Laser pointer",
+      "side_2"              : "Flashlight"
     },
 
     "m1911": {
@@ -106,6 +168,177 @@
       "slide_2"             : "Tactical slide",
 
       "bottom_1"            : "Sweetwater laser"
+    }
+  },
+  "fra": {
+    "loading"             : "Chargement",
+    "switch"              : "Changer d'arme",
+
+    "barrel"              : "Canon",
+    "bolt"                : "Culasse",
+    "bottom_accessory"    : "Accessoire inférieur",
+    "charging_handle"     : "Levier d'armement",
+    "frame"               : "Corps",
+    "gas_block"           : "Bloc",
+    "gas_tube"            : "Tube",
+    "grip"                : "Poignée",
+    "handguard"           : "Garde-main",
+    "lower_handguard"     : "Garde-main inférieur",
+    "lower_receiver"      : "Corps inférieur",
+    "magazine"            : "Chargeur",
+    "muzzle"              : "Bouche",
+    "optic"               : "Visée",
+    "receiver"            : "Corps",
+    "side_accessory"      : "Accessoire latéral",
+    "slide"               : "Culasse",
+    "stock"               : "Crosse",
+    "top_accessory"       : "Accessoire supérieur",
+    "top_cover"           : "Capot",
+    "trigger_assembly"    : "Détente",
+    "upper_handguard"     : "Garde-main supérieur",
+    "upper_receiver"      : "Corps supérieur",
+
+    "akm": {
+      "none"                : "Aucun(e)",
+
+      "optic_1"             : "Kobra",
+      "optic_2"             : "PSO-1",
+
+      "stock_1"             : "Crosse plastique",
+      "stock_2"             : "Crosse bois",
+      "stock_3"             : "Crosse pliante",
+      "stock_4"             : "Crosse AR",
+
+      "mag_1"               : "Chargeur d'acier",
+      "mag_2"               : "Chargeur de bakélite",
+      "mag_3"               : "Chargeur tactique",
+      "mag_4"               : "Chargeur léger",
+      "mag_5"               : "Chargeur RPK",
+
+      "bolt_1"              : "Culasse standard",
+      "bolt_2"              : "Culasse lourde",
+
+      "barrel_1"            : "Canon standard",
+
+      "muzzle_1"            : "Suppresseur de flash",
+      "muzzle_2"            : "Frein de bouche",
+
+      "receiver_1"          : "Corps embouti",
+      "receiver_2"          : "Corps forgé",
+      "receiver_3"          : "Corps de Saiga",
+
+      "grip_1"              : "Poignée de bakélite",
+      "grip_2"              : "Poignée tactique",
+      "grip_3"              : "Poignée compacte",
+
+      "cover_1"             : "Capot lisse",
+      "cover_2"             : "Capot forgé",
+
+      "gas_tube_1"          : "Tube standard",
+      "gas_tube_2"          : "Tube fluté",
+
+      "block_1"             : "Bloc standard",
+      "block_2"             : "Bloc tactique",
+
+      "upper_1"             : "Garde-main plastique",
+      "upper_2"             : "Garde-main bois",
+      "upper_3"             : "Garde-main à rail",
+      "upper_4"             : "Rail tactique",
+
+      "lower_1"             : "Garde-main plastique",
+      "lower_2"             : "Garde-main bois",
+      "lower_3"             : "Garde-main à rail",
+
+      "bottom_1"            : "Poignée avant",
+
+      "top_1"               : "Viseur laser"
+    },
+
+    "ar-15": {
+      "none"                : "Aucun(e)",
+
+      "mag_1"               : "STANAG",
+      "mag_2"               : "PMAG",
+
+      "assembly_1"          : "Geissele",
+
+      "bolt_1"              : "Culasse standard",
+      "bolt_2"              : "Culasse renforcée",
+
+      "handle_1"            : "Levier standard",
+      "handle_2"            : "Levier ambidextre",
+
+      "barrel_1"            : "Canon standard",
+      "barrel_2"            : "Canon léger",
+
+      "tube_1"              : "Tube standard",
+
+      "block_1"             : "Mire fixe",
+      "block_2"             : "Bloc fin",
+
+      "muzzle_1"            : "Suppresseur de flash",
+      "muzzle_2"            : "Frein de bouche léger",
+      "muzzle_3"            : "Silencieux",
+
+      "stock_1"             : "Crosse standard",
+      "stock_2"             : "Crosse fixe",
+      "stock_3"             : "Crosse compacte",
+      "stock_4"             : "Crosse SOCOM",
+
+      "lower_1"             : "Corps VCW",
+      "lower_2"             : "Corps Noveske",
+      "lower_3"             : "Corps tactique",
+      "lower_4"             : "Corps léger",
+
+      "grip_1"              : "Poignée standard",
+      "grip_2"              : "Poignée BG-17",
+      "grip_3"              : "Poignée tactique",
+      "grip_4"              : "Poignée ergonomique",
+
+      "upper_1"             : "Corps VCW",
+      "upper_2"             : "Corps tactique",
+      "upper_3"             : "Corps BCM",
+
+      "handguard_1"         : "Garde-main standard",
+      "handguard_2"         : "RIS standard",
+      "handguard_3"         : "Garde-main Noveske",
+
+      "optic_1"             : "Poignée de transport",
+      "optic_2"             : "Mire arrière",
+      "optic_3"             : "Point-rouge Mepro",
+      "optic_4"             : "EOTech",
+      "optic_5"             : "Lunette courte portée",
+      "optic_6"             : "Lunette ACOG",
+
+      "bottom_1"            : "Poignée avant",
+      "bottom_2"            : "Poignée inclinée",
+
+      "top_1"               : "Viseur laser",
+      "top_2"               : "Lampe tactique",
+
+      "side_1"              : "Viseur laser",
+      "side_2"              : "Lampe tactique"
+    },
+
+    "m1911": {
+      "none"                : "Aucun(e)",
+
+      "mag_1"               : "Chargeur standard",
+
+      "barrel_1"            : "Canon standard",
+
+      "muzzle_1"            : "Silencieux Osprey",
+
+      "frame_1"             : "Corps classique",
+      "frame_2"             : "Corps moderne",
+
+      "grip_1"              : "Poignées bois",
+      "grip_2"              : "Poignées beiges",
+
+      "slide_1"             : "Culasse classique",
+      "slide_2"             : "Culasse tactique",
+
+      "bottom_1"            : "Viseur laser Sweetwater"
     }
   }
 }
