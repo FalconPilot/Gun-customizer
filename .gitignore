@@ -1,3 +1,5 @@
 *.zip
 *_osx
 node_modules
+*.DS_Store
+*x64
