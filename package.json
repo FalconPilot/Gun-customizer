@@ -1,8 +1,7 @@
 {
   "name"          : "gun-customizer",
   "productName"   : "Gun customizer",
-  "description"   : "",
+  "description"   : "A simple gun customization program",
   "version"       : "0.1.0",
-  "license"       : "",
   "main"          : "main.js"
 }

@@ -27,6 +27,9 @@
     "upper_handguard"     : "Upper handguard",
     "upper_receiver"      : "Upper receiver",
 
+    "damage"              : "Damage",
+    "accuracy"            : "Accuracy",
+
     "akm": {
       "none"                : "None",
 
