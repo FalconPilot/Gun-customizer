@@ -1,1 +1,3 @@
-
+*.zip
+*_osx
+node_modules

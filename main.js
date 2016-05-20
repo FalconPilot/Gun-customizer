@@ -15,10 +15,11 @@ function createWindow() {
   win = new BrowserWindow({
     fullscreen: true,
     title: package.productName,
+    icon: __dirname + "/assets/misc/icon.png",
     webPreferences: {}
   })
   win.loadURL('file://' + __dirname + '/index.html')
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
   win.on('closed', function() {
     app.quit()
   })
