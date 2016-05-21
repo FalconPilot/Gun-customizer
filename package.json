@@ -1,18 +1,18 @@
 {
-  "name" :            "gun-customizer",
-  "productName" :     "Gun customizer",
-  "description" :     "A simple gun customization program",
-  "version" :         "0.1.1",
-  "main" :            "main.js",
-  "license" :         "MIT",
+  "name" :                  "gun-customizer",
+  "productName" :           "Gun customizer",
+  "description" :           "A simple gun customization program",
+  "version" :               "0.1.1",
+  "main" :                  "main.js",
+  "license" :               "MIT",
   "repository" : {
-    "type" :          "git",
-    "url" :           "git+https://github.com/FalconPilot/Gun-customizer"
+    "type" :                "git",
+    "url" :                 "git+https://github.com/FalconPilot/Gun-customizer"
   },
   "scripts" : {
-    "start" :         "electron ."
+    "start" :               "electron ."
   },
   "devDependencies" : {
-    "electron-prebuilt" : "^1.0.1"
+    "electron-prebuilt" :   "^1.0.1"
   }
 }
