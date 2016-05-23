@@ -6,7 +6,7 @@ Electron for various reasons.
 Currently, a release has been made for OS X (sadly, the Win32 release will have
 to wait, as I'm struggling to find a way to make it work).
 
-# Todo listeners
+# Todo list
 - Release a WIN32 version
 - Release a Linux version
 - Add more guns
