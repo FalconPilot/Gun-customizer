@@ -13,6 +13,6 @@
     "start" :               "electron ."
   },
   "devDependencies" : {
-    "electron-prebuilt" :   "^1.0.1"
+    "electron-prebuilt" :   "^1.2.0"
   }
 }
