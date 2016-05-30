@@ -3,7 +3,7 @@
   "productName" :           "Gun customizer",
   "description" :           "A simple gun customization program",
   "version" :               "0.1.1",
-  "main" :                  "main.js",
+  "main" :                  "app.js",
   "license" :               "MIT",
   "repository" : {
     "type" :                "git",

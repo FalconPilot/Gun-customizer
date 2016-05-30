@@ -7,7 +7,7 @@ const remote = electron.remote
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
 
-let mainWindow
+let win
 
 // Creating window
 
@@ -23,12 +23,12 @@ function createWindow() {
   win.on('closed', function() {
     app.quit()
   })
-  finishLoading(win)
+  finishLoading()
 }
 
 // Finish loading process
 
-function finishLoading(win) {
+function finishLoading() {
   weapons = loadParts()
   data = new Data(weapons)
   win.rendererSideName = data
