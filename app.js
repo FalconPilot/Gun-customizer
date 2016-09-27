@@ -1,10 +1,11 @@
-const electron = require('electron')
-const fs = require('fs')
-const path = require('path')
-const package = require('./package.json')
-const vocab = require('./src/vocab.json')
-const remote = electron.remote
-const app = electron.app
+const electron      = require('electron')
+const fs            = require('fs')
+const path          = require('path')
+const package       = require('./package.json')
+const vocab         = require('./src/vocab.json')
+
+const remote        = electron.remote
+const app           = electron.app
 const BrowserWindow = electron.BrowserWindow
 
 let win
@@ -13,7 +14,10 @@ let win
 
 function createWindow() {
   win = new BrowserWindow({
-    fullscreen: true,
+    width: 800,
+    height: 600,
+    fullscreen: false,
+    fullscreenable: true,
     title: package.productName,
     icon: __dirname + "/assets/misc/icon.png",
     webPreferences: {}
@@ -55,7 +59,7 @@ function Weapon(name) {
 // Node object
 
 function GunNode(name) {
-  params = name.split('|')
+  params = name.split('$')
   this.name = params[1]
   this.noderef = name
   this.zlevel = params[0]
@@ -65,7 +69,7 @@ function GunNode(name) {
 // Part object
 
 function GunPart(src) {
-  params = src.split('/').reverse()[0].split('.')[0].split('|')
+  params = src.split('/').reverse()[0].split('.')[0].split('$')
   this.id = params[0]
   this.name = params[1]
   this.src = src
