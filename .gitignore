@@ -1,6 +1,7 @@
 *.zip
 *_osx
 node_modules
-*.DS_Store
+.DS_Store
 *x64
 *ia32
+assets
